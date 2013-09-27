@@ -1,3 +1,4 @@
+
 //
 //  ViewController.h
 //  Sample
@@ -7,7 +8,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <Slt/Slt.h>
+#import <OpenEars/FliteController.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>{
+    IBOutlet UITextField *tf;
+    NSString *sp;
+}
+
+-(IBAction)pushSpeech:(id)sender;
+
+@property (strong, nonatomic) FliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
 
 @end

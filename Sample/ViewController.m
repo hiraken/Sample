@@ -8,16 +8,32 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () 
+
+
 
 @end
 
 @implementation ViewController
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [tf resignFirstResponder];
+    return YES;
+}
+
+-(IBAction)pushSpeech:(id)sender{
+    [self.fliteController say:tf.text withVoice:self.slt];
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.fliteController = [[FliteController alloc] init];
+    self.slt = [[Slt alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
